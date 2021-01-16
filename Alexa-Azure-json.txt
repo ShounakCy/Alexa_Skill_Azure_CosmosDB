@@ -1,0 +1,216 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AIntent",
+        "samples": [
+          "a",
+          "b",
+          "dedwd",
+          "wed",
+          "vwecwerc",
+          "ercece",
+          "cerc",
+          "hi",
+          "why"
+        ],
+        "slots": []
+      },
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "Intenta",
+        "samples": [
+          "what is the active Heating time.",
+          "active heating time"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentb",
+        "samples": [
+          "what is the cycle time",
+          "cycle time"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentc",
+        "samples": [
+          "what are the active axes.",
+          "active axes"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentd",
+        "samples": [
+          "what is the active energy value",
+          "active energy value"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intente",
+        "samples": [
+          "what is the Bad Job.",
+          "Bad Job"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentf",
+        "samples": [
+          "what is the block",
+          "what is the bloch",
+          "block",
+          "bloch"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentg",
+        "samples": [
+          "what is the Tool Identidy.",
+          "what is the Tool Id.",
+          "tool id",
+          "tool identity"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intenth",
+        "samples": [
+          "what is the Cumulative Jobs",
+          "Cumulative Jobs"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intenti",
+        "samples": [
+          "what is the Feed rate overide",
+          "feed rate overide"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentj",
+        "samples": [
+          "what is the Frequency",
+          "Frequency"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentk",
+        "samples": [
+          "what is the Good Job.",
+          "Good Job"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentl",
+        "samples": [
+          "what is the Left Side Job Temperature",
+          "Left Side Job Temperature"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentm",
+        "samples": [
+          "what is the Line",
+          "Line"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentn",
+        "samples": [
+          "what is the Part Count",
+          "How many parts are produced by frd machines today",
+          "How many parts are produced today",
+          "Part Count"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intento",
+        "samples": [
+          "what is the Path Federate",
+          "path federate  "
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentp",
+        "samples": [
+          "what is the Program",
+          "Program"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentq",
+        "samples": [
+          "what is the Right Side Job Temperature.",
+          "Right Side Job Temperature"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentr",
+        "samples": [
+          "what is the Spindle speed Overide",
+          "spindle speed overide"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intents",
+        "samples": [
+          "what is the Total Job",
+          "Total Job"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentt",
+        "samples": [
+          "what is the Voltage",
+          "Voltage"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentu",
+        "samples": [
+          "what is the Mode",
+          "Mode"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentw",
+        "samples": [
+          "what is the Program Commente",
+          "Program Comment"
+        ],
+        "slots": []
+      }
+    ],
+    "invocationName": "xxx technologies"
+  }
+}

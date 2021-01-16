@@ -1,0 +1,342 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AIntent",
+        "samples": [
+          "a",
+          "b",
+          "dedwd",
+          "wed",
+          "vwecwerc",
+          "ercece",
+          "cerc",
+          "hi",
+          "why"
+        ],
+        "slots": []
+      },
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "Intenta",
+        "samples": [
+          "What is the active heating time of frd nine two zero nine one "
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentaA",
+        "samples": [
+          "What is the active heating time of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentb",
+        "samples": [
+          "What is the cycle time of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentbB",
+        "samples": [
+          "What is the cycle time of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentc",
+        "samples": [
+          "what are the active axes of frd nine two zero nine one."
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentcC",
+        "samples": [
+          "what are the active axes of frd nine two zero nine two."
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentd",
+        "samples": [
+          "what is the active energy value of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentdD",
+        "samples": [
+          "what is the active energy value of frd nine two zero nine two "
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intente",
+        "samples": [
+          "what is the Bad Job of frd nine two zero nine one."
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntenteE",
+        "samples": [
+          "what is the Bad Job of frd nine two zero nine two."
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentf",
+        "samples": [
+          "what is the block of frd nine two zero nine one."
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentfF",
+        "samples": [
+          "what is the block of frd nine two zero nine two."
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentg",
+        "samples": [
+          "what is the Tool Identidy of frd nine two zero nine one."
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentgG",
+        "samples": [
+          "what is the Tool Identidy of frd nine two zero nine two."
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intenth",
+        "samples": [
+          "what are the Cumulative Jobs of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntenthH",
+        "samples": [
+          "what are the Cumulative Jobs of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intenti",
+        "samples": [
+          "what is the Feed rate overide of frd nine two zero nine one."
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentiI",
+        "samples": [
+          "what is the Feed rate overide of frd nine two zero nine two."
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentj",
+        "samples": [
+          "what is the Frequency of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentjJ",
+        "samples": [
+          "what is the Frequency of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentk",
+        "samples": [
+          "what is the Good Job of frd nine two zero nine one."
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentkK",
+        "samples": [
+          "what is the Good Job of frd nine two zero nine two."
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentl",
+        "samples": [
+          "what is the Left Side Job Temperature of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentlL",
+        "samples": [
+          "what is the Left Side Job Temperature of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentm",
+        "samples": [
+          "what is the Line of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentmM",
+        "samples": [
+          "what is the Line of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentn",
+        "samples": [
+          "tell me how many parts are produced by frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentnN",
+        "samples": [
+          "tell me how many parts are produced by frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intento",
+        "samples": [
+          "what is the Path Federate of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentoO",
+        "samples": [
+          "what is the Path Federate of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentp",
+        "samples": [
+          "what is the Program of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentpP",
+        "samples": [
+          "what is the Program of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentq",
+        "samples": [
+          "what is the Right Side Job Temperature of frd nine two zero nine one."
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentqQ",
+        "samples": [
+          "what is the Right Side Job Temperature of frd nine two zero nine two."
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentr",
+        "samples": [
+          "what is the Spindle speed Overide of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentrR",
+        "samples": [
+          "what is the Spindle speed Overide of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intents",
+        "samples": [
+          "what is the Total Job of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentsS",
+        "samples": [
+          "what is the Total Job of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentt",
+        "samples": [
+          "what is the Voltage of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntenttT",
+        "samples": [
+          "what is the Voltage of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentu",
+        "samples": [
+          "what is the Mode of frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentuU",
+        "samples": [
+          "what is the Mode of frd nine two zero nine two"
+        ],
+        "slots": []
+      },
+      {
+        "name": "Intentw",
+        "samples": [
+          "what is the Program Commenteof frd nine two zero nine one"
+        ],
+        "slots": []
+      },
+      {
+        "name": "IntentwW",
+        "samples": [
+          "what is the Program Commenteof frd nine two zero nine two"
+        ],
+        "slots": []
+      }
+    ],
+    "invocationName": "connected factories"
+  }
+}

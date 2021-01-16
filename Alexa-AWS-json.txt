@@ -1,0 +1,320 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AIntent",
+        "samples": [
+          "hi",
+          "hello",
+          "how",
+          "what"
+        ],
+        "slots": []
+      },
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "MyIntenta",
+        "samples": [
+          "what is the actual energy value",
+          "Actual Energy Value"
+        ],
+        "slots": [
+          {
+            "name": "ActualEnergyValue",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentb",
+        "samples": [
+          "What is the actual heating time",
+          "ActiveEating time",
+          "Actual Heating Time"
+        ],
+        "slots": [
+          {
+            "name": "ActualHeatingTime",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentc",
+        "samples": [
+          "Bad Job"
+        ],
+        "slots": [
+          {
+            "name": "BadJob",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentd",
+        "samples": [
+          "Cumulative Jobs"
+        ],
+        "slots": [
+          {
+            "name": "CumulativeJobs",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntente",
+        "samples": [
+          "Active Axes"
+        ],
+        "slots": [
+          {
+            "name": "ActiveAxes",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentf",
+        "samples": [
+          "Block",
+          "Bloch"
+        ],
+        "slots": [
+          {
+            "name": "Bloch",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentg",
+        "samples": [
+          "Cycle Time"
+        ],
+        "slots": [
+          {
+            "name": "CycleTime",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntenti",
+        "samples": [
+          "Frequency"
+        ],
+        "slots": [
+          {
+            "name": "Frequency",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentj",
+        "samples": [
+          "F over",
+          "Fovr"
+        ],
+        "slots": [
+          {
+            "name": "Fovr",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentk",
+        "samples": [
+          "Good job",
+          "GoodJob"
+        ],
+        "slots": [
+          {
+            "name": "GoodJob",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentl",
+        "samples": [
+          "Left Side Job Temperature"
+        ],
+        "slots": [
+          {
+            "name": "LeftSideJobTemperature",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentm",
+        "samples": [
+          "Line"
+        ],
+        "slots": [
+          {
+            "name": "Line",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentn",
+        "samples": [
+          "Mode"
+        ],
+        "slots": [
+          {
+            "name": "Mode",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntento",
+        "samples": [
+          "How many parts are produced by frd machines today",
+          "how many parts are produced today",
+          "What is the Part number",
+          "the part count number",
+          "number of parts",
+          "Part Count"
+        ],
+        "slots": [
+          {
+            "name": "PartCount",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentp",
+        "samples": [
+          "Path Federate"
+        ],
+        "slots": [
+          {
+            "name": "PathFederate",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentq",
+        "samples": [
+          "Path Position"
+        ],
+        "slots": [
+          {
+            "name": "PathPosition",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentr",
+        "samples": [
+          "Program"
+        ],
+        "slots": [
+          {
+            "name": "Program",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntents",
+        "samples": [
+          "Program Comment"
+        ],
+        "slots": [
+          {
+            "name": "ProgramComment",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentt",
+        "samples": [
+          "what is the right side job temperature",
+          "Right Side Job Temperature"
+        ],
+        "slots": [
+          {
+            "name": "RightSideJobTemperature",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentu",
+        "samples": [
+          "Speed Over",
+          "S speed over",
+          "SspeedOvr"
+        ],
+        "slots": [
+          {
+            "name": "SspeedOvr",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentv",
+        "samples": [
+          "Tell me the Tool identity",
+          "Tool Identity"
+        ],
+        "slots": [
+          {
+            "name": "ToolId",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentw",
+        "samples": [
+          "Total Jobs"
+        ],
+        "slots": [
+          {
+            "name": "TotalJob",
+            "type": "AMAZON.City"
+          }
+        ]
+      },
+      {
+        "name": "MyIntentx",
+        "samples": [
+          "Voltage"
+        ],
+        "slots": [
+          {
+            "name": "Voltage",
+            "type": "AMAZON.City"
+          }
+        ]
+      }
+    ],
+    "invocationName": "dynamo"
+  }
+}

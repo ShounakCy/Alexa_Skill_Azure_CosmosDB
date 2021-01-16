@@ -1,0 +1,523 @@
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Host;
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Linq;
+
+namespace FunctionApp
+{
+    public static class Alexa
+    {
+        [FunctionName("Alexa")]
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+        {
+            
+            dynamic data = await req.Content.ReadAsAsync<object>();
+            log.Info($"Content={data}");
+            if (data.request.type == "LaunchRequest")
+            {
+                // default launch request
+                log.Info($"Default LaunchRequest made");
+                return DefaultRequest(req);
+            }
+            else if (data.request.type == "IntentRequest")
+            {
+                // Seting name to query string
+                string intentName = data.request.intent.name;
+                log.Info($"intentName={intentName}");
+
+                //Cosmos-db credentials
+                DocumentClient client = new DocumentClient(new Uri("https://iiot-cosmos-document.documents.azure.com:443/"),
+                   "xxx==");
+                //Query Cosmos-db
+                IQueryable<Document> values = client.CreateDocumentQuery<Document>(UriFactory.CreateDocumentCollectionUri("machine-data", "machine-data"), "SELECT TOP 1 * FROM c WHERE c.DeviceCode= 'IYM-FBD-FANUC-01' ORDER BY c._ts DESC ");
+
+                //query 
+                Document latest1 = new Document();
+                foreach (var y in values)
+                {
+                    if (y.GetPropertyValue<string>("DeviceCode") == "IYM-FBD-FANUC-01")
+                    {
+                        latest1 = y;
+
+                    }
+
+                }
+                IQueryable<Document> values1 = client.CreateDocumentQuery<Document>(UriFactory.CreateDocumentCollectionUri("machine-data", "machine-data"), "SELECT TOP 1 * FROM c WHERE c.DeviceCode= 'IYM-CHN-FANUC-42160' ORDER BY c._ts DESC ");
+                //query
+                Document latest = new Document();
+                foreach (var x in values1)
+                {
+                    if (x.GetPropertyValue<string>("DeviceCode") == "IYM-CHN-FANUC-42160")
+                    {
+                        latest = x;
+                    }
+
+                }
+                //Intents inside Alexa portal
+                switch (intentName)
+                {
+                    case "AMAZON.HelpIntent":
+
+
+                        string ab1 = "How may i help you";
+                        string resultab1 = ab1;
+                        string subjectab1 = resultab1.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"{resultab1.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"{resultab1.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+                    case "AMAZON.CancelIntent":
+
+                        string ab = "Goodbye!";
+                        string resultab = ab;
+                        string subjectab = resultab.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"{resultab.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"{resultab.ToString()}."
+                                },
+                                shouldEndSession = true
+                            }
+                        });
+                    case "AMAZON.StopIntent":
+
+                        string ab2 = "Goodbye!";
+                        string resultab2 = ab2;
+                        string subjectab2 = resultab2.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"{resultab2.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"{resultab2.ToString()}."
+                                },
+                                shouldEndSession = true
+                            }
+                        });
+                    case "AIntent":
+
+
+                        string abc = "I didn't get you. Please try again.";
+                        string resultabc = abc;
+                        string subjectabc = resultabc.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"{resultabc.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"{resultabc.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+                   
+                    case "Intentb":
+
+                        var b = latest1.GetPropertyValue<float>("Cycle Time").ToString();
+                        string resultb = b;
+                        string subjectb = resultb.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"{resultb.ToString()} seconds."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"{resultb.ToString()} seconds."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "Intentd":
+
+                        var d = latest1.GetPropertyValue<float>("Actual Energy Value").ToString();
+                        string resultd = d;
+                        string subjectd = resultd.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resultd.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resultd.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "Intente":
+
+                        var e = latest1.GetPropertyValue<float>("Bad Job").ToString();
+                        string resulte = e;
+                        string subjecte = resulte.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resulte.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resulte.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "Intenth":
+
+                        var h = latest1.GetPropertyValue<float>("Cumulative Jobs").ToString();
+                        string resulth = h;
+                        string subjecth = resulth.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resulth.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resulth.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "Intentk":
+
+                        var k = latest1.GetPropertyValue<float>("Good Job").ToString();
+                        string resultk = k;
+                        string subjectk = resultk.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resultk.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resultk.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "Intentn":
+
+                        var n = latest1.GetPropertyValue<float>("Cumulative Part Count").ToString();
+                        string resultn = n;
+                        string subjectn = resultn.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resultn.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resultn.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "IntentbB":
+
+                        var b1 = latest.GetPropertyValue<float>("Cycle Time").ToString();
+                        string resultb1 = b1;
+                        string subjectb1 = resultb1.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resultb1.ToString()} seconds."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resultb1.ToString()} seconds."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "IntentdD":
+
+                        var d1 = latest.GetPropertyValue<float>("Actual Energy Value").ToString();
+                        string resultd1 = d1;
+                        string subjectd1 = resultd1.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resultd1.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resultd1.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "IntenteE":
+
+                        var e1 = latest.GetPropertyValue<float>("Bad Job").ToString();
+                        string resulte1 = e1;
+                        string subjecte1 = resulte1.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resulte1.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resulte1.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "IntenthH":
+
+                        var h1 = latest.GetPropertyValue<float>("Cumulative Jobs").ToString();
+                        string resulth1 = h1;
+                        string subjecth1 = resulth1.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resulth1.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resulth1.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "IntentkK":
+
+                        var k1 = latest.GetPropertyValue<float>("Good Job").ToString();
+                        string resultk1 = k1;
+                        string subjectk1 = resultk1.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resultk1.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resultk1.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+                    case "IntentnN":
+
+                        var n1 = latest.GetPropertyValue<float>("Cumulative Part Count").ToString();
+                        string resultn1 = n1;
+                        string subjectn1 = resultn1.ToString();
+                        return req.CreateResponse(HttpStatusCode.OK, new
+                        {
+                            version = "1.0",
+                            sessionAttributes = new { },
+
+                            response = new
+                            {
+                                outputSpeech = new
+                                {
+                                    type = "PlainText",
+                                    text = $"The result is {resultn1.ToString()}."
+                                },
+                                card = new
+                                {
+                                    type = "Simple",
+                                    title = "xxx",
+                                    content = $"The result is {resultn1.ToString()}."
+                                },
+                                shouldEndSession = false
+                            }
+                        });
+
+
+
+                    // You can add more intents and default responses
+                    default:
+                        return DefaultRequest(req);
+                }
+            }
+            else
+            {
+                return DefaultRequest(req);
+            }
+        }
+        // Response to Launch Request
+        private static HttpResponseMessage DefaultRequest(HttpRequestMessage req)
+        {
+            return req.CreateResponse(HttpStatusCode.OK, new
+            {
+                version = "1.0",
+                sessionAttributes = new { },
+                response = new
+                {
+                    outputSpeech = new
+                    {
+                        type = "PlainText",
+                        text = "Welcome to Connected Factories. How may I help you?"
+                    },
+                    card = new
+                    {
+                        type = "Simple",
+                        title = "xxx",
+                        content = "Welcome to Connected factories. How may I help you?"
+                    },
+                    shouldEndSession = false
+                }
+            });
+        }
+    }
+}
